@@ -1,21 +1,5 @@
 #!/bin/bash
-# coded by @thelinuxchoice (Instagram)
 
-banner() {
-
-printf "\e[1;97m"
-printf "  ____  ____   ______  ____  _____  _       ___    ___   ___   \n"
-printf " /    T|    \ |      Tl    j|     || T     /   \  /   \ |   \  \n"
-printf "Y  o  ||  _  Y|      | |  T |   __j| |    Y     YY     Y|    \ \n"
-printf "|     ||  |  |l_j  l_j |  | |  l_  | l___ |  O  ||  O  ||  D  Y\n"
-printf "|  _  ||  |  |  |  |   |  | |    | |     T|     ||     ||     |\n"
-printf "|  |  ||  |  |  |  |   j  l |  T   |     |l     !l     !|     |\n"
-printf "l__j__jl__j__j  l__j  |____jl__j   l_____j \___/  \___/ l_____j\n"
-printf "\n\e[0m"                                                               
-printf "\e[101m::\e[1;77m Protection against: DoS, DDoS, UDP/TCP Flood, BruteForcer ::\e[0m\n\n"
-
-
-}
 
 
 checkbrute=$(/sbin/iptables -L | /bin/grep -o "antibrute" > /dev/null;echo "$?") >&2
@@ -43,7 +27,7 @@ readconfig() {
         printf "\e[1;77m:: Creating Anti Flood config file (/etc/antiflood.cfg)... \e[0m"
         /usr/bin/touch /etc/antiflood.cfg
         printf "antibrute=y\n" >> /etc/antiflood.cfg
-        printf "ports=21,22,23,25,110,143,443\n" >> /etc/antiflood.cfg
+        printf "ports=21,22,23,25,110,143,443,30120,40120\n" >> /etc/antiflood.cfg
         printf "seconds=60\n" >> /etc/antiflood.cfg
         printf "hitcount=6\n" >> /etc/antiflood.cfg
         printf "udpflood=y\n" >> /etc/antiflood.cfg
